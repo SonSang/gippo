@@ -1,0 +1,82 @@
+params:  
+  seed: 1
+  device: 'cuda:0'
+
+  env:
+    name: AckleyEnv
+    config:
+      dim: 1
+
+  algo:
+    name: gippo
+
+    # network
+    network:
+      actor: ActorStochasticMLP
+      actor_mlp:
+        units: [32, 32]
+        activation: elu
+      actor_logstd_init: 0.0
+      fixed_sigma: False
+
+      critic: CriticMLP
+      critic_mlp:
+        units: [32, 32]
+        activation: elu
+
+    # length
+    horizon_length: 1
+    max_epochs: 2000
+    
+    # normalize
+    normalize_input: True
+    normalize_value: True
+    normalize_advantage: True
+    
+    # GAE
+    gamma: 0.99
+    tau: 0.95
+    
+    # save
+    save_best_after: 50
+    save_frequency: 100
+    
+    grad_norm: 1.0
+    truncate_grads: True
+    steps_num: 1
+    
+    num_actors: 64
+    
+    critic_coef: 4
+    clip_value: True
+
+    # actor
+    actor_learning_rate: 1e-4         # ppo
+    actor_learning_rate_no_ppo: 1e-3  # analytical grads
+    
+    # critic
+    critic_learning_rate: 1e-3
+    critic_iterations: 16
+    critic_num_batch: 4
+    target_critic_alpha: 0.2
+
+    # learning rate scheduler
+    lr_schedule: linear # [constant, linear]
+
+    # adam
+    betas: [0.7, 0.95]
+
+    # ppo
+    ppo:
+      e_clip: 0.2
+      minibatch_size: 64
+      mini_epochs: 5
+
+    # gippo
+    gi:
+      alpha: 1e-5
+      alpha_interval: 0.40
+      alpha_update_factor: 1.1
+      max_alpha: 1e-0
+      num_iter: 16
+      max_oorr: 0.5
