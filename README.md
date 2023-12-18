@@ -1,6 +1,6 @@
 # Introduction
 
-This is the code repository for the paper "Gradient Informed Proximal Policy Optimization", which was presented in the Neurips 2023 conference. This code was implemented on the basis of [rl_games](https://github.com/Denys88/rl_games) and [SHAC](https://github.com/NVlabs/DiffRL).
+This is the code repository for the paper ["Gradient Informed Proximal Policy Optimization"](https://arxiv.org/abs/2312.08710), which was presented in the Neurips 2023 conference. This code was implemented on the basis of [rl_games](https://github.com/Denys88/rl_games) and [SHAC](https://github.com/NVlabs/DiffRL).
 
 # Installation
 
