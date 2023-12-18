@@ -28,7 +28,7 @@ def get_activation_func(activation_name):
     elif activation_name.lower() == 'identity':
         return nn.Identity()
     else:
-        raise NotImplementedError('Actication func {} not defined'.format(activation_name))
+        raise NotImplementedError('Activation func {} not defined'.format(activation_name))
 
 '''
 Actor
